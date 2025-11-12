@@ -104,3 +104,21 @@ services:
       - authentication-identity-server
     networks: [cloud-net]
     restart: unless-stopped
+
+  # 10️⃣ Node Exporter (MỚI)
+  monitoring-node-exporter-server:
+    image: prom/node-exporter:latest
+    container_name: monitoring-node-exporter-server
+    networks: [cloud-net]
+    restart: unless-stopped
+
+  # 11️⃣ Web Frontend Exporter (MỚI)
+  web-frontend-exporter:
+    image: nginx/nginx-prometheus-exporter:1.1
+    container_name: web-frontend-exporter
+    networks: [cloud-net]
+    restart: unless-stopped
+    command:
+      # Ra lệnh cho exporter kết nối vào service 'web-frontend-server'
+      # và đọc trang '/stub_status' mà bạn vừa tạo ở Bước 1
+      - -nginx.scrape-uri=http://web-frontend-server/stub_status

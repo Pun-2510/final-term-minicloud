@@ -1,4 +1,15 @@
-global: { scrape_interval: 15s }
+global:
+  scrape_interval: 15s # Tần suất 'scrape' mặc định
+
 scrape_configs:
-  - job_name: 'node'
-    static_configs: [ { targets: ['node-exporter:9100'] } ]
+  # Job 1: Giám sát Node Exporter (MỚI)
+  - job_name: "node-exporter"
+    static_configs:
+      # Prometheus sẽ dùng DNS nội bộ của Docker để tìm service này
+      # qua mạng 'cloud-net'
+      - targets: ["monitoring-node-exporter-server:9100"]
+
+  # Job 2: Giám sát web-frontend-server
+  - job_name: "web"
+    static_configs:
+      - targets: ["web-frontend-exporter:9113"]

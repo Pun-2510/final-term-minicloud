@@ -14,4 +14,12 @@ server {
     try_files $uri $uri/ =404;
   }
 
+  location /stub_status {
+        stub_status on;       # Bật module status
+        access_log off;       # Tắt log cho đỡ rác
+        allow 127.0.0.1;      # Cho phép truy cập từ localhost (bên trong container)
+        allow 172.16.0.0/12;  # Cho phép toàn bộ dải IP của Docker (an toàn)
+        deny all;             # Chặn tất cả các truy cập khác
+  }
+
 }
