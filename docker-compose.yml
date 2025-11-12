@@ -68,6 +68,7 @@ services:
     container_name: internal-dns-server
     ports: ["1053:53/udp"]
     volumes:
+      - ./internal-dns-server/named.conf:/etc/bind/named.conf:ro
       - ./internal-dns-server/named.conf.options:/etc/bind/named.conf.options:ro
       - ./internal-dns-server/named.conf.local:/etc/bind/named.conf.local:ro
       - ./internal-dns-server/db.cloud.local:/etc/bind/db.cloud.local:ro
