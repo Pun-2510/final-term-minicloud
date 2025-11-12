@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMiniCloud - Blog Section</title>
+    
+    <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tải Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Các CSS này là cần thiết để thẻ (card) và tiêu đề hiển thị đúng */
+        :root {
+            --color-primary: #4d5280;
+            --color-primary-hover: #404469; /* Màu tối hơn một chút khi hover */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            /* background-color: #FFFFFF; BỊ XÓA BỎ TỪ ĐÂY */
+            color: #374151; /* Màu chữ chính (xám đậm) */
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            color: #111827; /* Màu tiêu đề (đen) */
+            font-weight: 700;
+        }
+
+        /* Tiêu đề phần */
+        .section-title {
+            font-size: 2.5rem; /* 40px */
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: -0.025em;
+            color: var(--color-primary); /* Sử dụng màu chủ đạo */
+        }
+        
+        /* Thẻ (Card) */
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid #E5E7EB; /* Viền xám nhạt */
+            border-radius: 0.75rem; /* 12px */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class=""> <!-- Xóa bg-white ở đây -->
+
+    <!-- LỚP NỀN TRẮNG CỐ ĐỊNH (phía sau) -->
+    <div class="fixed inset-0 z-[-2] bg-white"></div>
+
+    <!-- 
+      DIV NỀN MỜ CHO TOÀN TRANG (phía trước nền trắng, sau nội dung)
+      - Nằm cố định (fixed) và z-[-1]
+      - Mặc định ẩn (opacity-0)
+      - Sẽ được kích hoạt bằng JavaScript
+     -->
+    <div id="page-background-overlay" class="fixed inset-0 z-[-1] transition-opacity duration-500 ease-in-out opacity-0"
+         style="
+             /* background-image được đặt bởi JS */
+             background-size: cover; 
+             background-position: center; 
+             filter: blur(8px) brightness(0.9); /* THÊM LẠI HIỆU ỨNG BLUR VÀ ĐỘ SÁNG */
+             /* Thêm transition cho background-image để mượt hơn */
+             transition-property: opacity, background-image;
+             transition-duration: 500ms;
+             transition-timing-function: ease-in-out;
+             ">
+    </div>
+
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 md:py-28 bg-transparent"> <!-- Nền trong suốt để thấy overlay -->
+        <div class="container mx-auto px-6">
+            <h3 class="section-title">Từ Blog Của Chúng Tôi</h3>
+            <p class="text-center text-lg text-gray-600 -mt-8 mb-16 max-w-2xl mx-auto">
+                Khám phá các dự án, hướng dẫn và cập nhật mới nhất từ MyMiniCloud.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                
+                <!-- Blog Card 1: Stella Sora -->
+                <div class="card overflow-hidden flex flex-col"> <!-- Thẻ dọc -->
+                    <!-- Hình ảnh/Icon -->
+                    <div class="w-full h-56 relative overflow-hidden flex items-center justify-center p-4">
+                         <!-- 1. Background Image (Class 'card-bg-image' dùng cho JS) -->
+                        <img src="/blog/assets/img/kuqlvofd-f4bf.jpg" alt="Blog Background" class="card-bg-image absolute inset-0 w-full h-full object-cover z-0" onerror="this.style.display='none'">
+                        
+                        <!-- 2. Glass (Kính mờ) Overlay -->
+                        <div class="absolute inset-0 w-full h-full bg-black/20 backdrop-blur-sm z-10"></div>
+                        
+                        <!-- 3. Icon (Hình vuông) -->
+                        <div class="w-32 h-32 rounded-lg bg-white/20 backdrop-blur-md p-2 shadow-lg relative z-20 border border-white/30">
+                             <img src="/blog/assets/img/icon.jpg" alt="Icon" class="w-full h-full object-contain rounded-md" onerror="this.src='https://placehold.co/128x128/FFFFFF/4d5280?text=Icon'; this.onerror=null;">
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h4 class="text-2xl font-bold mb-3 text-gray-900">Stella Sora Wiki</h4>
+                        <p class="text-gray-600 text-base mb-6 flex-grow"> <!-- Description nhỏ -->
+                            Một dự án wiki dành riêng cho tựa game gacha Stella Sora, được phát triển và phát hành bởi Yostar.
+                        </p>
+                        <a href="/blog/blog1.html" class="font-bold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors self-start">
+                            Xem thêm &rarr; <!-- Link "See" -->
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2: Dự án khác -->
+                <div class="card overflow-hidden flex flex-col">
+                    <div class="w-full h-56 relative overflow-hidden bg-gray-200"> <!-- Thêm relative ở đây -->
+                         <!-- Cập nhật đường dẫn ảnh (ví dụ) -->
+                         <img src="assets/img/project-alpha.jpg" alt="Project Alpha" class="card-bg-image absolute inset-0 w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/4d5280/FFFFFF?text=Project+Alpha'; this.onerror=null;">
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h4 class="text-2xl font-bold mb-3 text-gray-900">Project Alpha</h4>
+                        <p class="text-gray-600 text-base mb-6 flex-grow">
+                            Mô tả ngắn về một dự án công nghệ, một ứng dụng web hoặc một bài viết cá nhân khác.
+                        </p>
+                        <a href="/blog/project-alpha" class="font-bold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors self-start">
+                            Xem thêm &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3: Hướng dẫn -->
+                <div class="card overflow-hidden flex flex-col">
+                    <div class="w-full h-56 relative overflow-hidden bg-gray-200"> <!-- Thêm relative ở đây -->
+                         <!-- Cập nhật đường dẫn ảnh (ví dụ) -->
+                         <img src="assets/img/cloud-tutorial.jpg" alt="Cloud Tutorial" class="card-bg-image absolute inset-0 w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/4d5280/FFFFFF?text=Cloud+Tutorial'; this.onerror=null;">
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h4 class="text-2xl font-bold mb-3 text-gray-900">Hướng Dẫn Cloud</h4>
+                        <p class="text-gray-600 text-base mb-6 flex-grow">
+                            Cách thiết lập và triển khai một ứng dụng web đơn giản lên nền tảng đám mây.
+                        </S V>
+                        <a href="/blog/cloud-tutorial" class="font-bold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] transition-colors self-start">
+                            Xem thêm &rarr;
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SCRIPT CHO HIỆU ỨNG NỀN (ĐÃ CẬP NHẬT) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Chọn lớp nền mờ
+            const bgOverlay = document.getElementById('page-background-overlay');
+            
+            // Chọn tất cả các thẻ card
+            const cards = document.querySelectorAll('.card');
+
+            // Thêm sự kiện cho mỗi thẻ
+            cards.forEach(card => {
+                // Tìm ảnh nền tương ứng của thẻ này
+                const bgImage = card.querySelector('.card-bg-image');
+                let imgSrc = null;
+
+                if (bgImage) {
+                    imgSrc = bgImage.src;
+                }
+
+                // Khi di chuột VÀO
+                card.addEventListener('mouseenter', () => {
+                    if (imgSrc) {
+                        // Đặt ảnh nền của overlay thành ảnh của card
+                        bgOverlay.style.backgroundImage = `url(${imgSrc})`;
+                        // Hiển thị overlay
+                        bgOverlay.style.opacity = '1';
+                    }
+                });
+                
+                // Khi di chuột RA
+                card.addEventListener('mouseleave', () => {
+                    // Ẩn overlay
+                    bgOverlay.style.opacity = '0';
+                    // (Tùy chọn: xóa ảnh nền sau khi mờ đi để tiết kiệm bộ nhớ)
+                    // setTimeout(() => {
+                    //     if (bgOverlay.style.opacity === '0') {
+                    //         bgOverlay.style.backgroundImage = 'none';
+                    //     }
+                    // }, 500); // 500ms khớp với transition-duration
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

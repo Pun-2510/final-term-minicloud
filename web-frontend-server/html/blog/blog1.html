@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stella Sora - Fanmade Blog</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      .intro-bg {
+        background: url("assets/img/bg-fd7e71ee.jpg") center/cover no-repeat;
+        border-radius: 1rem;
+      }
+      #gameplay-inner img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        margin: auto;
+        border-radius: 1rem;
+      }
+      .character-card img {
+        transition: filter 0.3s;
+      }
+      .character-overlay {
+        transition: opacity 0.3s;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 flex">
+    <!-- Sidebar -->
+    <aside
+      class="w-64 bg-white shadow-lg fixed top-0 left-0 h-full flex flex-col z-50"
+    >
+      <div class="p-6 border-b border-gray-200">
+        <h1 class="text-2xl font-bold text-indigo-600">Stella Sora</h1>
+      </div>
+      <nav class="flex-1 p-4 space-y-3">
+        <a
+          href="../../index.html"
+          class="block px-3 py-2 rounded-lg hover:bg-indigo-100 text-gray-700 font-medium"
+          >🏠 Home</a
+        >
+        <a
+          href="#intro"
+          class="block px-3 py-2 rounded-lg hover:bg-indigo-100 text-gray-700 font-medium"
+          >✨ Introduction</a
+        >
+        <a
+          href="#gameplay"
+          class="block px-3 py-2 rounded-lg hover:bg-indigo-100 text-gray-700 font-medium"
+          >🎮 Gameplay</a
+        >
+        <a
+          href="#characters"
+          class="block px-3 py-2 rounded-lg hover:bg-indigo-100 text-gray-700 font-medium"
+          >🧑‍🤝‍🧑 Characters</a
+        >
+        <a
+          href="#community"
+          class="block px-3 py-2 rounded-lg hover:bg-indigo-100 text-gray-700 font-medium"
+          >🌐 Community</a
+        >
+      </nav>
+      <div class="p-4 border-t border-gray-200">
+        <p class="text-sm text-gray-500">&copy; 2025 Stella Sora Fanmade</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 ml-64 p-10">
+      <!-- Introduction -->
+      <article
+        id="intro"
+        class="max-w-5xl mx-auto bg-white rounded-xl shadow-md p-8 mb-12 intro-bg text-white"
+      >
+        <h1 class="text-4xl font-bold mb-6">
+          Explore the Magical Universe of
+          <span class="text-indigo-200">Stella Sora</span>
+        </h1>
+        <p class="text-lg leading-relaxed mb-6">
+          <strong>Stella Sora</strong> is a fantasy gacha adventure from
+          <strong>Yostar</strong>, bringing together hundreds of beautifully
+          designed Trekkers under the starry cosmos.
+        </p>
+      </article>
+
+      <!-- Gameplay Section -->
+      <section
+        id="gameplay"
+        class="max-w-5xl mx-auto bg-white rounded-xl shadow-md p-8 mb-12"
+      >
+        <h2 class="text-3xl font-bold text-indigo-600 mb-6 text-center">
+          Gameplay Highlights
+        </h2>
+        <div class="relative overflow-hidden w-full h-[28rem]">
+          <div
+            id="gameplay-inner"
+            class="flex transition-transform duration-500 ease-in-out h-full gap-0"
+          >
+            <div class="w-full flex-shrink-0 flex items-center justify-center">
+              <img src="assets/img/g0.png" alt="Gameplay 1" />
+            </div>
+            <div class="w-full flex-shrink-0 flex items-center justify-center">
+              <img src="assets/img/g1.png" alt="Gameplay 2" />
+            </div>
+            <div class="w-full flex-shrink-0 flex items-center justify-center">
+              <img src="assets/img/g2.png" alt="Gameplay 3" />
+            </div>
+            <div class="w-full flex-shrink-0 flex items-center justify-center">
+              <img src="assets/img/g3.png" alt="Gameplay 4" />
+            </div>
+            <div class="w-full flex-shrink-0 flex items-center justify-center">
+              <img src="assets/img/g4.png" alt="Gameplay 5" />
+            </div>
+            <div class="w-full flex-shrink-0 flex items-center justify-center">
+              <img src="assets/img/g5.png" alt="Gameplay 6" />
+            </div>
+          </div>
+          <button
+            id="gameplay-prev"
+            class="absolute top-1/2 -translate-y-1/2 left-2 text-white text-2xl z-20 hover:text-indigo-400 transition"
+          >
+            ◀
+          </button>
+          <button
+            id="gameplay-next"
+            class="absolute top-1/2 -translate-y-1/2 right-2 text-white text-2xl z-20 hover:text-indigo-400 transition"
+          >
+            ▶
+          </button>
+        </div>
+      </section>
+
+      <!-- Characters Section -->
+      <section
+        id="characters"
+        class="max-w-5xl mx-auto bg-white rounded-xl shadow-md p-8 mb-12"
+      >
+        <h2 class="text-3xl font-bold text-indigo-600 mb-6 text-center">
+          Meet the Characters
+        </h2>
+        <div class="relative overflow-hidden">
+          <div
+            id="characters-inner"
+            class="flex transition-transform duration-500 ease-in-out"
+          >
+            <!-- Character cards -->
+            <div class="character-card relative group w-56 mx-2 flex-shrink-0">
+              <img
+                src="assets/img/char_01.png"
+                alt="Chixia"
+                class="rounded-xl w-full h-96 object-cover filter group-hover:blur-sm"
+              />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-center rounded-xl"
+              >
+                <span class="text-white font-bold text-xl">Chixia</span>
+                <span class="flex items-center text-orange-400 text-sm mt-1">
+                  <img src="assets/img/Ignis.png" class="w-4 h-4 mr-1" />Amber
+                </span>
+              </div>
+            </div>
+            <div class="character-card relative group w-56 mx-2 flex-shrink-0">
+              <img
+                src="assets/img/char_02.png"
+                alt="Minova"
+                class="rounded-xl w-full h-96 object-cover filter group-hover:blur-sm"
+              />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-center rounded-xl"
+              >
+                <span class="text-white font-bold text-xl">Minova</span>
+                <span class="flex items-center text-yellow-300 text-sm mt-1">
+                  <img src="assets/img/Lux.png" class="w-4 h-4 mr-1" />Lux
+                </span>
+              </div>
+            </div>
+            <div class="character-card relative group w-56 mx-2 flex-shrink-0">
+              <img
+                src="assets/img/char_03.png"
+                alt="Freesia"
+                class="rounded-xl w-full h-96 object-cover filter group-hover:blur-sm"
+              />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-center rounded-xl"
+              >
+                <span class="text-white font-bold text-xl">Freesia</span>
+                <span class="flex items-center text-blue-400 text-sm mt-1">
+                  <img src="assets/img/Aqua.png" class="w-4 h-4 mr-1" />Aqua
+                </span>
+              </div>
+            </div>
+            <div class="character-card relative group w-56 mx-2 flex-shrink-0">
+              <img
+                src="assets/img/char_04.png"
+                alt="Nazuna"
+                class="rounded-xl w-full h-96 object-cover filter group-hover:blur-sm"
+              />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-center rounded-xl"
+              >
+                <span class="text-white font-bold text-xl">Nazuna</span>
+                <span class="flex items-center text-green-600 text-sm mt-1">
+                  <img src="assets/img/Terra.png" class="w-4 h-4 mr-1" />Terra
+                </span>
+              </div>
+            </div>
+            <div class="character-card relative group w-56 mx-2 flex-shrink-0">
+              <img
+                src="assets/img/char_05.png"
+                alt="Nanoha"
+                class="rounded-xl w-full h-96 object-cover filter group-hover:blur-sm"
+              />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-center rounded-xl"
+              >
+                <span class="text-white font-bold text-xl">Nanoha</span>
+                <span class="flex items-center text-green-400 text-sm mt-1">
+                  <img src="assets/img/Ventus.png" class="w-4 h-4 mr-1" />Ventus
+                </span>
+              </div>
+            </div>
+            <div class="character-card relative group w-56 mx-2 flex-shrink-0">
+              <img
+                src="assets/img/char_06.png"
+                alt="Mistique"
+                class="rounded-xl w-full h-96 object-cover filter group-hover:blur-sm"
+              />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-center rounded-xl"
+              >
+                <span class="text-white font-bold text-xl">Mistique</span>
+                <span class="flex items-center text-gray-800 text-sm mt-1">
+                  <img src="assets/img/Umbra.png" class="w-4 h-4 mr-1" />Umbra
+                </span>
+              </div>
+            </div>
+            <div class="character-card relative group w-56 mx-2 flex-shrink-0">
+              <img
+                src="assets/img/char_07.png"
+                alt="Ann"
+                class="rounded-xl w-full h-96 object-cover filter group-hover:blur-sm"
+              />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-center rounded-xl"
+              >
+                <span class="text-white font-bold text-xl">Ann</span>
+                <span class="flex items-center text-green-400 text-sm mt-1">
+                  <img src="assets/img/Ventus.png" class="w-4 h-4 mr-1" />Ventus
+                </span>
+              </div>
+            </div>
+            <div class="character-card relative group w-56 mx-2 flex-shrink-0">
+              <img
+                src="assets/img/char_08.png"
+                alt="Iris"
+                class="rounded-xl w-full h-96 object-cover filter group-hover:blur-sm"
+              />
+              <div
+                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-center rounded-xl"
+              >
+                <span class="text-white font-bold text-xl">Iris</span>
+                <span class="flex items-center text-blue-400 text-sm mt-1">
+                  <img src="assets/img/Aqua.png" class="w-4 h-4 mr-1" />Aqua
+                </span>
+              </div>
+            </div>
+          </div>
+          <button
+            id="char-prev"
+            class="absolute top-1/2 -translate-y-1/2 left-2 text-white text-2xl z-20 hover:text-indigo-400 transition"
+          >
+            ◀
+          </button>
+          <button
+            id="char-next"
+            class="absolute top-1/2 -translate-y-1/2 right-2 text-white text-2xl z-20 hover:text-indigo-400 transition"
+          >
+            ▶
+          </button>
+        </div>
+      </section>
+
+      <!-- Community Section -->
+      <section
+        id="community"
+        class="max-w-5xl mx-auto bg-indigo-700 text-white rounded-xl shadow-md p-8 text-center"
+      >
+        <h2 class="text-3xl font-bold mb-4">Join the Community</h2>
+        <p class="text-white/90 mb-8">
+          Stay updated with the latest news, guides, and fan content for Stella
+          Sora.
+        </p>
+        <a
+          href="https://stellasora.miraheze.org/wiki/Stella_Sora_Wiki"
+          target="_blank"
+          class="inline-block bg-white text-indigo-700 font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition"
+          >📖 Visit Official Wiki</a
+        >
+      </section>
+    </main>
+
+    <script>
+      // Gameplay Carousel
+      const gameplayInner = document.getElementById("gameplay-inner");
+      const gameplayPrev = document.getElementById("gameplay-prev");
+      const gameplayNext = document.getElementById("gameplay-next");
+      const gameplayCards = gameplayInner.children;
+      const gameplayTotal = gameplayCards.length;
+      let gIndex = 0;
+
+      function updateGameplay() {
+        gameplayInner.style.transform = `translateX(-${
+          gIndex * gameplayInner.offsetWidth
+        }px)`;
+      }
+
+      gameplayNext.onclick = () => {
+        gIndex = (gIndex + 1) % gameplayTotal;
+        updateGameplay();
+      };
+      gameplayPrev.onclick = () => {
+        gIndex = (gIndex - 1 + gameplayTotal) % gameplayTotal;
+        updateGameplay();
+      };
+      setInterval(() => {
+        gIndex = (gIndex + 1) % gameplayTotal;
+        updateGameplay();
+      }, 5000);
+      updateGameplay();
+
+      // Characters Carousel
+      const inner = document.getElementById("characters-inner");
+      const prevChar = document.getElementById("char-prev");
+      const nextChar = document.getElementById("char-next");
+      const cards = inner.children;
+      const total = cards.length;
+      const visible = 4;
+      let index = 0;
+
+      function updateChar() {
+        const cardWidth = cards[0].offsetWidth + 16;
+        inner.style.transform = `translateX(-${index * cardWidth}px)`;
+      }
+      nextChar.onclick = () => {
+        index = (index + 1) % total;
+        if (index > total - visible) index = 0;
+        updateChar();
+      };
+      prevChar.onclick = () => {
+        index = (index - 1 + total) % total;
+        if (index > total - visible) index = total - visible;
+        updateChar();
+      };
+      updateChar();
+    </script>
+  </body>
+</html>
