@@ -1,0 +1,46 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Misono Mika",
+      "major": "Theology",
+      "gpa": 3.75
+    },
+    {
+      "id": 2,
+      "name": "Kirifuji Nagisa",
+      "major": "Political Science",
+      "gpa": 3.95
+    },
+    {
+      "id": 3,
+      "name": "Kenzaki Tsurugi",
+      "major": "Criminology",
+      "gpa": 3.82
+    },
+    {
+      "id": 4,
+      "name": "Ajitani Hifumi",
+      "major": "Business Management",
+      "gpa": 3.45
+    },
+    {
+      "id": 5,
+      "name": "Shimomori Koharu",
+      "major": "Ethics and Law",
+      "gpa": 3.88
+    },
+    {
+      "id": 6,
+      "name": "Shirasu Azusa",
+      "major": "Philosophy",
+      "gpa": 3.91
+    },
+    {
+      "id": 7,
+      "name": "Urawa Hanako",
+      "major": "Human Anatomy",
+      "gpa": 4.0
+    }
+  ]
+}

@@ -21,6 +21,16 @@ services:
     environment:
       OIDC_ISSUER: "http://authentication-identity-server:8080/realms/master"
       OIDC_AUDIENCE: "myapp"
+      # [THÊM MỚI] - Cung cấp biến môi trường database cho app.py
+      # (app.py của bạn đang đọc các biến này, với giá trị mặc định)
+      DB_USER: "root"
+      DB_PASS: "root"
+      DB_HOST: "relational-database-server"
+      DB_NAME: "studentdb" # <-- Đảm bảo khớp với database của bạn
+    depends_on:
+      relational-database-server:
+        # Yêu cầu backend đợi cho đến khi database "thực sự khỏe mạnh"
+        condition: service_healthy
 
   # 3️⃣ Database (MariaDB)
   relational-database-server:
@@ -28,11 +38,19 @@ services:
     container_name: relational-database-server
     environment:
       MARIADB_ROOT_PASSWORD: root
-      MARIADB_DATABASE: minicloud
+      # [ĐÃ SỬA] - Đặt database mặc định là 'studentdb' cho nhất quán
+      MARIADB_DATABASE: studentdb
     volumes:
+      # Thư mục init của bạn chứa cả minicloud.sql và studentdb.sql
       - ./relational-database-server/init:/docker-entrypoint-initdb.d:ro
     ports: ["3306:3306"]
     networks: [cloud-net]
+    healthcheck:
+      # Sử dụng client 'mariadb' (như chúng ta đã tìm ra) để ping server
+      test: ["CMD", "mariadb", "-u", "root", "-proot", "-e", "SELECT 1;"]
+      interval: 5s # Kiểm tra mỗi 5 giây
+      timeout: 3s # Hết thời gian chờ sau 3 giây
+      retries: 10 # Thử lại 10 lần trước khi báo lỗi
 
   # 4️⃣ Authentication & Identity (Keycloak)
   authentication-identity-server:

@@ -4,7 +4,9 @@ WORKDIR /app
 
 COPY app.py .
 
-RUN pip install --no-cache-dir flask requests python-jose
+COPY students.json .
+
+RUN pip install --no-cache-dir flask requests python-jose Flask-SQLAlchemy PyMySQL
 
 EXPOSE 8081
 
